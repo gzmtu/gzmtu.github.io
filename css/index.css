@@ -1081,29 +1081,6 @@ kbd {
   padding-top: 0.5rem;
   text-align: center;
 }
-.sidebar-reading {
-  overflow: hidden;
-  margin-top: 0.5em;
-  text-align: center;
-}
-.sidebar-reading-info {
-  margin-bottom: 0.3em;
-}
-.sidebar-reading-line {
-  width: 100%;
-  height: 1px;
-  background-color: #fc6423;
-  -webkit-transition: -webkit-transform 0.2s ease;
-  -moz-transition: -moz-transform 0.2s ease;
-  -o-transition: -o-transform 0.2s ease;
-  -ms-transition: -ms-transform 0.2s ease;
-  transition: transform 0.2s ease;
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  transform: translateX(-100%);
-}
 .archive {
   margin-left: 1rem;
 }
@@ -1400,34 +1377,8 @@ kbd {
 .post-meta-item--visitors {
   color: #fc6423;
 }
-.post-ending {
-  margin-bottom: 1rem;
-}
 .post-copyright {
   margin-bottom: 1rem;
-}
-.post-tags {
-  margin-bottom: 1rem;
-}
-.post-tags-item {
-  margin: 0 0.5rem;
-}
-.post-tags-item:hover {
-  cursor: pointer;
-}
-.post-tags-item__icon,
-.post-tags-item__link {
-  margin: 0.1rem;
-  color: #49b1f5;
-  -webkit-transition: color 0.2s;
-  -moz-transition: color 0.2s;
-  -o-transition: color 0.2s;
-  -ms-transition: color 0.2s;
-  transition: color 0.2s;
-}
-.post-tags-item:hover .post-tags-item__icon,
-.post-tags-item:hover .post-tags-item__link {
-  color: #fc6423;
 }
 .post-paginator {
   border-top: 1px solid var(--color-gray-250);
@@ -1773,12 +1724,6 @@ kbd {
   color: #d44;
   background-color: #ffeef0;
 }
-.ending {
-  padding: 1rem 0 0;
-  text-align: center;
-  color: var(--color-gray-400);
-  border-top: 1px dashed var(--color-gray-300);
-}
 .copyright {
   position: relative;
   border: 1px solid var(--color-gray-250);
@@ -1884,6 +1829,47 @@ kbd {
   cursor: zoom-out;
   will-change: transform;
 }
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.4s linear;
+  -moz-transition: opacity 0.4s linear;
+  -o-transition: opacity 0.4s linear;
+  -ms-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
+}
+.loading-bar__progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #77b6ff;
+  -webkit-box-shadow: 0 0 10px rgba(119,182,255,0.7);
+  box-shadow: 0 0 10px rgba(119,182,255,0.7);
+}
+.loading-bar.loading {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+.loading-bar.loading .loading-bar__progress {
+  -webkit-transition: width 0.4s ease;
+  -moz-transition: width 0.4s ease;
+  -o-transition: width 0.4s ease;
+  -ms-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+}
 .gallery img {
   margin-bottom: 10px;
 }
@@ -1907,6 +1893,61 @@ kbd {
   padding: 1rem 2rem;
   background-color: var(--color-card);
   float: left;
+}
+#valine-container code,
+#valine-container pre {
+  background-color: var(--color-gray-200);
+}
+#valine-container .markdown {
+  fill: var(--color-gray-700);
+}
+#valine-container .vnum,
+#valine-container .vbtn,
+#valine-container .vctrl,
+#valine-container .vinput,
+#valine-container .vcount,
+#valine-container .vemoji-btn,
+#valine-container .vpreview-btn,
+#valine-container .vcontent *,
+#valine-container .vpreview *,
+#valine-container a {
+  color: var(--color-gray-700);
+}
+#valine-container .vinput {
+  border-bottom: 1px dashed var(--color-gray-300);
+}
+#valine-container .vcontent.expand::before {
+  color: var(--color-gray-600);
+  background: -webkit-linear-gradient(270deg, var(--color-gradient-begin), var(--color-gradient-end));
+  background: -moz-linear-gradient(270deg, var(--color-gradient-begin), var(--color-gradient-end));
+  background: -o-linear-gradient(270deg, var(--color-gradient-begin), var(--color-gradient-end));
+  background: -ms-linear-gradient(270deg, var(--color-gradient-begin), var(--color-gradient-end));
+  background: linear-gradient(180deg, var(--color-gradient-begin), var(--color-gradient-end));
+}
+#valine-container .vcontent.expand::after {
+  color: var(--color-gray-600);
+  background: var(--color-gradient-end);
+}
+#valine-container .vsys,
+#valine-container .vbtn {
+  background-color: var(--color-gray-250);
+}
+#valine-container .vbtn {
+  border-color: var(--color-gray-250);
+}
+#valine-container .vbtn:hover {
+  border-color: #3090e4;
+  color: #3090e4;
+}
+#valine-container .vwrap {
+  border-color: var(--color-gray-250);
+}
+#valine-container .vlist .vcard .vh {
+  border-bottom: 1px dashed var(--color-gray-250);
+}
+#valine-container .vcode {
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-250);
 }
 .copy-button {
   position: absolute;
